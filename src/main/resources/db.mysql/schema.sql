@@ -1,0 +1,23 @@
+-- CREATE TABLE IF NOT EXISTS users (
+--     user_id bigint not null auto_increment primary key,
+--     first_name VARCHAR(255) not null,
+--     last_name VARCHAR(255) not null,
+--     email VARCHAR(255) not null,
+--     password VARCHAR(255) not null,
+--     role ENUM ('ADMIN', 'USER') not null,
+--     birthday DATE not null);
+--
+-- CREATE TABLE IF NOT EXISTS user_gift (
+--     user_gift_id bigint not null auto_increment PRIMARY KEY,
+--     date date not null,
+--     user_id bigint not null,
+--     FOREIGN KEY (user_id) REFERENCES users(id));
+--
+-- CREATE TABLE IF NOT EXISTS gifts (
+--     gifts_id bigint not null auto_increment PRIMARY KEY,
+--     description VARCHAR (255) not null,
+--     picture VARCHAR (255),
+--     link VARCHAR (255),
+--     user_gift_id bigint not null,
+--     FOREIGN KEY (user_gift_id) REFERENCES user_gift(id));
+--
