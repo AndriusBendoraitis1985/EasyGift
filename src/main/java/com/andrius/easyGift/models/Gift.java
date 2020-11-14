@@ -1,7 +1,6 @@
 package com.andrius.easyGift.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -15,30 +14,30 @@ import javax.persistence.*;
 @EqualsAndHashCode(callSuper = false)
 @NoArgsConstructor
 @AllArgsConstructor
-public class Gift{
-
+public class Gift {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long gifts_id;
+    @Column(name = "giftId")
+    private Long giftId;
 
-    @NotNull
-    private String description;
+    @Column(name = "giftDescription")
+    private String giftDescription;
 
-    private String picture;
+    @Column(name = "imaginePath")
+    private String imaginePath;
 
-    private String link;
-
-    public Gift(String description, String picture, String link) {
-        this.description = description;
-        this.picture = picture;
-        this.link = link;
-    }
+    @Column(name = "rating")
+    private int rating;
 
     @ManyToOne
-    @JoinColumn(name = "user_gift_id")
+    @JoinColumn(name = "occasionId")
     @JsonBackReference
-    private UserGift userGift;
+    private Occasion occasion;
 
-
-
+    public Gift(String giftDescription, String imaginePath, int rating, Occasion occasion) {
+        this.giftDescription = giftDescription;
+        this.imaginePath = imaginePath;
+        this.rating = rating;
+        this.occasion = occasion;
+    }
 }
