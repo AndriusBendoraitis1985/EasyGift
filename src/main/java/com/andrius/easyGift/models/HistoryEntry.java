@@ -9,7 +9,7 @@ import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-@Table (name = "history")
+@Table(name = "history")
 @Data
 @EqualsAndHashCode(callSuper = false)
 @NoArgsConstructor
@@ -17,30 +17,37 @@ import java.time.LocalDate;
 public class HistoryEntry {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="historyEntryId")
+    @Column(name = "historyEntryId")
     private Long historyEntryId;
 
-    @Column(name="userName")
+    @Column(name = "userName")
     private String userName;
 
-    @Column(name="surname")
-    private String surname;
+    @Column(name = "userSurname")
+    private String userSurname;
 
-    @Column(name="historyType")
+    @Column(name = "historyType")
     private String historyType;
 
-    @Column(name="historyDate")
+    @Column(name = "historyDate")
     private LocalDate historyDate;
 
-    @Column(name="historyDescription")
+    @Column(name = "historyDescription")
     private String historyDescription;
 
-    @Column(name="historyImaginePath")
+    @Column(name = "historyImaginePath")
     private String historyImaginePath;
 
-    public HistoryEntry(String userName, String surname, String historyType, LocalDate historyDate, String historyDescription, String historyImaginePath) {
+    public HistoryEntry(
+            String userName,
+            String userSurname,
+            String historyType,
+            LocalDate historyDate,
+            String historyDescription,
+            String historyImaginePath
+    ) {
         this.userName = userName;
-        this.surname = surname;
+        this.userSurname = userSurname;
         this.historyType = historyType;
         this.historyDate = historyDate;
         this.historyDescription = historyDescription;

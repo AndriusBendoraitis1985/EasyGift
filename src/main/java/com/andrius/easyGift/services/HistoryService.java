@@ -1,11 +1,13 @@
 package com.andrius.easyGift.services;
 
 import com.andrius.easyGift.models.HistoryEntry;
+import com.andrius.easyGift.models.Occasion;
 import com.andrius.easyGift.repositories.HistoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Service
 public class HistoryService {
@@ -13,10 +15,18 @@ public class HistoryService {
     @Autowired
     private HistoryRepository historyRepository;
 
+    public List<HistoryEntry> getAllHistoryEntries() {
+        return historyRepository.findAll();
+    }
+
+    public HistoryEntry addHistoryEntry (HistoryEntry historyEntry){
+        return historyRepository.save(historyEntry);
+    }
+
     public void addInitialHistoryData() {
         HistoryEntry historyEntry1 = new HistoryEntry(
                 "Kamile",
-                "Bendotaityte",
+                "Bendoraityte",
                 "birthday",
                 LocalDate.of(2016, 06, 16),
                 "doll",
@@ -32,4 +42,6 @@ public class HistoryService {
         historyRepository.save(historyEntry1);
         historyRepository.save(historyEntry2);
     }
+
+
 }

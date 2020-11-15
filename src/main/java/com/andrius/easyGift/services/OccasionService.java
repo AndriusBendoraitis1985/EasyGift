@@ -17,13 +17,19 @@ public class OccasionService {
     private OccasionRepository occasionRepository;
 
     public void addInitialOccasionsData() {
-
         occasionRepository.save(compileDataOccasion1());
         occasionRepository.save(compileDataOccasion2());
-
     }
 
-    public Occasion compileDataOccasion1 (){
+    public List<Occasion> getAllOccasions() {
+        return occasionRepository.findAll();
+    }
+
+    public Occasion addOccasion (Occasion occasion){
+        return occasionRepository.save(occasion);
+    }
+
+    public Occasion compileDataOccasion1() {
         Occasion occasion = new Occasion(
                 "Andrius",
                 "Bendoraitis",
@@ -48,7 +54,7 @@ public class OccasionService {
         return occasion;
     }
 
-    public Occasion compileDataOccasion2 (){
+    public Occasion compileDataOccasion2() {
         Occasion occasion = new Occasion(
                 "Elvyra",
                 "Bendoraitiene",
