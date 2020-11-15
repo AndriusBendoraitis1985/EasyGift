@@ -2,6 +2,7 @@ package com.andrius.easyGift.controllers;
 
 import com.andrius.easyGift.models.Gift;
 import com.andrius.easyGift.repositories.GiftRepository;
+import com.andrius.easyGift.services.GiftService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,21 +13,17 @@ import java.util.List;
 @RequiredArgsConstructor
 public class GiftRestController {
 
-    private final GiftRepository giftRepository;
+    private final GiftService giftService;
 
     @GetMapping("/gifts")
-    List<Gift> allGifts() {
-        return giftRepository.findAll();
+    List<Gift> allGiftsSorted() {
+        return giftService.getGiftsListSorted();
     }
 
     @PostMapping("/gifts")
     Gift createGift(@RequestBody Gift gift) {
-        return giftRepository.save(gift);
+        return giftService.saveGift(gift);
     }
 
-    @PutMapping("/gifts/like")
-    Gift likeToGift(@RequestBody Gift gift){
-        return giftRepository.save(gift);
-    }
 
 }
