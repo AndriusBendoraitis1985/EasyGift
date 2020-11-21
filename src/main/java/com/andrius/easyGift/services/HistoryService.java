@@ -25,19 +25,19 @@ public class HistoryService {
 
     public void addInitialHistoryData() {
         HistoryEntry historyEntry1 = new HistoryEntry(
-                "Kamile",
-                "Bendoraityte",
+                "Homer",
+                "Simpson",
                 "birthday",
-                LocalDate.of(2016, 06, 16),
-                "doll",
-                "https://images-na.ssl-images-amazon.com/images/I/714yfUZN8WL._SY879_.jpg");
+                LocalDate.of(2019, 06, 20),
+                "Hammock",
+                "https://images1.novica.net/pictures/2/p176824_2a.jpg");
         HistoryEntry historyEntry2 = new HistoryEntry(
-                "Aleksandr",
-                "Cerniuk",
-                "christmas",
-                LocalDate.of(2019, 12, 24),
-                "workshop tools",
-                "https://cdn.goodao.net/jjfixman/145.jpg");
+                "Lisa",
+                "Simpson",
+                "Christmas",
+                LocalDate.of(2019, 04, 24),
+                "Hat",
+                "https://4wayz.co.uk/wp-content/uploads/2019/01/c8f03132-e2c3-4df7-89cf-d5679b78869d.jpg");
 
         historyRepository.save(historyEntry1);
         historyRepository.save(historyEntry2);

@@ -1,6 +1,7 @@
 package com.andrius.easyGift.controllers;
 
 import com.andrius.easyGift.models.Gift;
+import com.andrius.easyGift.models.Occasion;
 import com.andrius.easyGift.repositories.GiftRepository;
 import com.andrius.easyGift.services.GiftService;
 import lombok.RequiredArgsConstructor;
@@ -25,5 +26,8 @@ public class GiftRestController {
         return giftService.saveGift(gift);
     }
 
-
+    @PutMapping("/gifts/{id}")
+    Gift updateGift(@RequestBody Gift gift, @PathVariable Long id) {
+        return giftService.updateGift(gift, id);
+    }
 }

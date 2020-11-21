@@ -5,7 +5,6 @@ import com.andrius.easyGift.repositories.GiftRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 
@@ -24,4 +23,15 @@ public class GiftService {
     public Gift saveGift (Gift gift){
         return giftRepository.save(gift);
     }
+
+    public Gift updateGift(Gift gift,Long id){
+       Gift giftToUpdate =
+               giftRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("gift with id" + id +
+               "not found"));
+       giftToUpdate.setGiftDescription(gift.getGiftDescription());
+       giftToUpdate.setImaginePath(gift.getImaginePath());
+       giftToUpdate.setRating(gift.getRating());
+       return giftRepository.save(giftToUpdate);
+    }
+
 }
