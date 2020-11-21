@@ -2,6 +2,7 @@ package com.andrius.easyGift.services;
 
 import com.andrius.easyGift.models.Gift;
 import com.andrius.easyGift.models.Occasion;
+import com.andrius.easyGift.repositories.GiftRepository;
 import com.andrius.easyGift.repositories.OccasionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,6 +17,9 @@ public class OccasionService {
     @Autowired
     private OccasionRepository occasionRepository;
 
+    @Autowired
+    private GiftRepository giftRepository;
+
     public void addInitialOccasionsData() {
         occasionRepository.save(compileDataOccasion1());
         occasionRepository.save(compileDataOccasion2());
@@ -25,9 +29,30 @@ public class OccasionService {
         return occasionRepository.findAll();
     }
 
-    public Occasion addOccasion (Occasion occasion){
+    public Occasion addOccasion(Occasion occasion) {
         return occasionRepository.save(occasion);
     }
+
+    public Occasion getOccasionById(Long id) throws IllegalArgumentException {
+        return occasionRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("event with id" + id +
+                "not found"));
+    }
+
+    public void deleteOccasionById(Long id) {
+        occasionRepository.deleteById(id);
+    }
+
+    public Occasion addNewGift(Gift gift, Long id) {
+
+        Occasion occasionToChange = getOccasionById(id);
+        gift.setOccasion(occasionToChange);
+        List<Gift> giftListToChange = occasionToChange.getGifts();
+        giftListToChange.add(gift);
+        occasionToChange.setGifts(giftListToChange);
+
+        return occasionRepository.save(occasionToChange);
+    }
+
 
     public Occasion compileDataOccasion1() {
         Occasion occasion = new Occasion(

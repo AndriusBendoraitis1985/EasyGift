@@ -36,7 +36,7 @@ public class Occasion {
     @Column(name = "occasionDate")
     private LocalDate occasionDate;
 
-    @OneToMany (mappedBy = "occasion", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @OneToMany (mappedBy = "occasion", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     @JsonManagedReference
     private List<Gift> gifts = new ArrayList<>();
 

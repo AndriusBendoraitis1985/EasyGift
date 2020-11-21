@@ -28,15 +28,30 @@ public class OccasionRestController {
         return occasionService.addOccasion(occasion);
     }
 
-    @CrossOrigin
+    @CrossOrigin(origins = "http://localhost:4200")
     @PutMapping("/events/gifts/{giftId}")
-    Gift likeToGift(@RequestBody Occasion occasion, @PathVariable Long giftId) throws IllegalArgumentException{
+    Gift addLikeToGift(@RequestBody Occasion occasion, @PathVariable Long giftId) throws IllegalArgumentException {
         Gift gift =
-                giftRepository.findById(giftId).orElseThrow(()-> new IllegalArgumentException("gift with id" + giftId +
-                "not found"));
+                giftRepository.findById(giftId).orElseThrow(() -> new IllegalArgumentException("gift with id" + giftId +
+                        "not found"));
         gift.setRating(gift.getRating() + 1);
         gift.setOccasion(occasion);
         return giftRepository.save(gift);
     }
+    @CrossOrigin(origins = "http://localhost:4200")
+    @GetMapping("/events/{id}")
+    Occasion occasionById(@PathVariable Long id) {
+        return occasionService.getOccasionById(id);
+    }
+    @CrossOrigin(origins = "http://localhost:4200")
+    @DeleteMapping("/events/{id}")
+    void deleteById(@PathVariable Long id) {
+        occasionService.deleteOccasionById(id);
+    }
 
+    @CrossOrigin(origins = "http://localhost:4200")
+    @PostMapping("/events/{occasionId}/new")
+    Occasion addNewGift (@RequestBody Gift gift, @PathVariable Long occasionId){
+        return occasionService.addNewGift(gift, occasionId);
+    }
 }

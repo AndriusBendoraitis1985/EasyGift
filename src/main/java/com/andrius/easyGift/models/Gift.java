@@ -10,10 +10,6 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "gifts")
-@Data
-@EqualsAndHashCode(callSuper = false)
-@NoArgsConstructor
-@AllArgsConstructor
 public class Gift {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -39,5 +35,56 @@ public class Gift {
         this.imaginePath = imaginePath;
         this.rating = rating;
         this.occasion = occasion;
+    }
+
+    public Long getGiftId() {
+        return giftId;
+    }
+
+    public void setGiftId(Long giftId) {
+        this.giftId = giftId;
+    }
+
+    public String getGiftDescription() {
+        return giftDescription;
+    }
+
+    public void setGiftDescription(String giftDescription) {
+        this.giftDescription = giftDescription;
+    }
+
+    public String getImaginePath() {
+        return imaginePath;
+    }
+
+    public void setImaginePath(String imaginePath) {
+        this.imaginePath = imaginePath;
+    }
+
+    public int getRating() {
+        return rating;
+    }
+
+    public void setRating(int rating) {
+        this.rating = rating;
+    }
+
+    public Occasion getOccasion() {
+        return occasion;
+    }
+
+    public void setOccasion(Occasion occasion) {
+        this.occasion = occasion;
+    }
+
+    public Gift(Long giftId, String giftDescription, String imaginePath, int rating, Occasion occasion) {
+        this.giftId = giftId;
+        this.giftDescription = giftDescription;
+        this.imaginePath = imaginePath;
+        this.rating = rating;
+        this.occasion = occasion;
+    }
+
+    public Gift() {
     }
 }
