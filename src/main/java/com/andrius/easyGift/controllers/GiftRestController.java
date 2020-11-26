@@ -1,8 +1,6 @@
 package com.andrius.easyGift.controllers;
 
 import com.andrius.easyGift.models.Gift;
-import com.andrius.easyGift.models.Occasion;
-import com.andrius.easyGift.repositories.GiftRepository;
 import com.andrius.easyGift.services.GiftService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;

@@ -17,9 +17,6 @@ public class OccasionService {
     @Autowired
     private OccasionRepository occasionRepository;
 
-    @Autowired
-    private GiftRepository giftRepository;
-
     public void addInitialOccasionsData() {
         occasionRepository.save(compileDataOccasion1());
         occasionRepository.save(compileDataOccasion2());
@@ -56,6 +53,11 @@ public class OccasionService {
         occasionToChange.setGifts(giftListToChange);
 
         return occasionRepository.save(occasionToChange);
+    }
+
+    public Occasion editOccasion(Occasion occasion, Long occasionId) {
+        occasion.setOccasionId(occasionId);
+        return occasionRepository.save(occasion);
     }
 
 
@@ -125,7 +127,7 @@ public class OccasionService {
                         "Bicycle",
                         "https://www.telegraph.co.uk/content/dam/health-fitness/2018/11/01" +
                                 "/future_trans_NvBQzQNjv4BqztbJieiwAQnQRmGy6ktPKjGlvRPkLrU2fMgxYfCf0eU.jpg",
-                                0,
+                        0,
                         occasion)
         );
 
@@ -180,6 +182,7 @@ public class OccasionService {
         occasion.setGifts(gifts1);
         return occasion;
     }
+
     public Occasion compileDataOccasion6() {
         Occasion occasion = new Occasion(
                 "Marge",
@@ -203,5 +206,4 @@ public class OccasionService {
         occasion.setGifts(gifts1);
         return occasion;
     }
-
 }
