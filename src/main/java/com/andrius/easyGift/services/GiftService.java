@@ -30,7 +30,7 @@ public class GiftService {
                         "not found"));
         giftToUpdate.setGiftDescription(gift.getGiftDescription());
         giftToUpdate.setImaginePath(gift.getImaginePath());
-        giftToUpdate.setRating(0);
+        giftToUpdate.setRating(gift.getRating());
         return giftRepository.save(giftToUpdate);
     }
 

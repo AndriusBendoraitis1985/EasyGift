@@ -2,7 +2,6 @@ package com.andrius.easyGift.services;
 
 import com.andrius.easyGift.models.Gift;
 import com.andrius.easyGift.models.Occasion;
-import com.andrius.easyGift.repositories.GiftRepository;
 import com.andrius.easyGift.repositories.OccasionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

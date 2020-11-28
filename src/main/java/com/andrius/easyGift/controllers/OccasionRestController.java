@@ -30,17 +30,6 @@ public class OccasionRestController {
         return occasionService.addOccasion(occasion);
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
-    @PutMapping("/gifts/{giftId}")
-    Gift addLikeToGift(@RequestBody Occasion occasion, @PathVariable Long giftId) throws IllegalArgumentException {
-        Gift gift =
-                giftRepository.findById(giftId).orElseThrow(() -> new IllegalArgumentException("gift with id" + giftId +
-                        "not found"));
-        gift.setRating(gift.getRating() + 1);
-        gift.setOccasion(occasion);
-        return giftRepository.save(gift);
-    }
-
     @GetMapping("/{id}")
     Occasion occasionById(@PathVariable Long id) {
         return occasionService.getOccasionById(id);
