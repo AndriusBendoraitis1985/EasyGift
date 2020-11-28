@@ -14,24 +14,35 @@ public class GiftService {
     @Autowired
     private GiftRepository giftRepository;
 
-    public List<Gift> getGiftsListSorted (){
+    public List<Gift> getGiftsListSorted() {
         List<Gift> giftListSorted = giftRepository.findAll();
         giftListSorted.sort(Comparator.comparing(Gift::getRating).reversed());
         return giftListSorted;
     }
 
-    public Gift saveGift (Gift gift){
+    public Gift saveGift(Gift gift) {
         return giftRepository.save(gift);
     }
 
-    public Gift updateGift(Gift gift,Long id){
-       Gift giftToUpdate =
-               giftRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("gift with id" + id +
-               "not found"));
-       giftToUpdate.setGiftDescription(gift.getGiftDescription());
-       giftToUpdate.setImaginePath(gift.getImaginePath());
-       giftToUpdate.setRating(gift.getRating());
-       return giftRepository.save(giftToUpdate);
+    public Gift updateGift(Gift gift, Long id) {
+        Gift giftToUpdate =
+                giftRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("gift with id" + id +
+                        "not found"));
+        giftToUpdate.setGiftDescription(gift.getGiftDescription());
+        giftToUpdate.setImaginePath(gift.getImaginePath());
+        giftToUpdate.setRating(0);
+        return giftRepository.save(giftToUpdate);
     }
 
+    public Gift deleteGift(Long id) {
+        Gift deletedGift = giftRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("gift with id" + id +
+                "not found"));
+        giftRepository.deleteById(id);
+        return deletedGift;
+    }
+
+    public Gift getGiftById(Long id) {
+        return giftRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("gift with id" + id +
+                "not found"));
+    }
 }

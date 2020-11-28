@@ -19,13 +19,26 @@ public class GiftRestController {
         return giftService.getGiftsListSorted();
     }
 
+    @GetMapping("/gifts/{id}")
+    Gift getGiftById(@PathVariable Long id) {
+        return giftService.getGiftById(id);
+    }
+
+    @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping("/gifts")
     Gift createGift(@RequestBody Gift gift) {
         return giftService.saveGift(gift);
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @PutMapping("/gifts/{id}")
     Gift updateGift(@RequestBody Gift gift, @PathVariable Long id) {
         return giftService.updateGift(gift, id);
+    }
+
+    @CrossOrigin(origins = "http://localhost:4200")
+    @DeleteMapping("/gifts/{id}")
+    Gift deleteGiftById(@PathVariable Long id){
+        return giftService.deleteGift(id);
     }
 }

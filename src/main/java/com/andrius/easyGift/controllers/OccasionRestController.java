@@ -24,7 +24,8 @@ public class OccasionRestController {
         return occasionService.getAllOccasions();
     }
 
-    @PostMapping()
+    @CrossOrigin(origins = "http://localhost:4200")
+    @PostMapping("/new")
     Occasion createdOccasion(@RequestBody Occasion occasion) {
         return occasionService.addOccasion(occasion);
     }
@@ -45,11 +46,13 @@ public class OccasionRestController {
         return occasionService.getOccasionById(id);
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @DeleteMapping("/{id}")
     void deleteById(@PathVariable Long id) {
         occasionService.deleteOccasionById(id);
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping("/{occasionId}/new")
     Occasion addNewGift (@RequestBody Gift gift, @PathVariable Long occasionId){
         return occasionService.addNewGift(gift, occasionId);
