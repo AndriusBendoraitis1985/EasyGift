@@ -23,7 +23,7 @@ public class EasyGiftApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        occasionService.addInitialOccasionsData();
-        historyService.addInitialHistoryData();
+//        occasionService.addInitialOccasionsData();
+//        historyService.addInitialHistoryData();
     }
 }
