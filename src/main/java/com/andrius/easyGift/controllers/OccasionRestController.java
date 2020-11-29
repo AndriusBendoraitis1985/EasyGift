@@ -2,8 +2,6 @@ package com.andrius.easyGift.controllers;
 
 import com.andrius.easyGift.models.Gift;
 import com.andrius.easyGift.models.Occasion;
-import com.andrius.easyGift.repositories.GiftRepository;
-import com.andrius.easyGift.repositories.OccasionRepository;
 import com.andrius.easyGift.services.OccasionService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -16,8 +14,6 @@ import java.util.List;
 public class OccasionRestController {
 
     private final OccasionService occasionService;
-    private final OccasionRepository occasionRepository;
-    private final GiftRepository giftRepository;
 
     @GetMapping()
     List<Occasion> allOccasions() {
