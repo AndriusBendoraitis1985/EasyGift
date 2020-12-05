@@ -3,9 +3,7 @@ package com.andrius.easyGift.controllers;
 import com.andrius.easyGift.models.User;
 import com.andrius.easyGift.services.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -15,13 +13,15 @@ public class UserRestController {
 
     private final UserService userService;
 
-    @GetMapping ("/users")
+    @CrossOrigin(origins = "http://localhost:4200")
+    @GetMapping("/users")
     List<User> allUsers() {
         return userService.getAllUsers();
     }
 
-    @GetMapping ("/user")
+    @CrossOrigin(origins = "http://localhost:4200")
+    @GetMapping("/user")
     User getUserByUserName(@RequestBody String username) {
-        return userService.getUsersByUserName(username);
+        return userService.findUsersByUserName(username);
     }
 }

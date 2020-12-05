@@ -1,7 +1,10 @@
-insert into users (user_name, password, email, logo_path, role) values ('Homer','123','homer@gmail.com','https://consequenceofsound.net/wp-content/uploads/2017/04/homer-simpson-feature1.png?w=807','admin');
-insert into users (user_name, password, email, logo_path, role) values ('Marge','123','marge@gmail.com','https://www.pngitem.com/pimgs/m/256-2562500_simpsons-png-images-free-download-homer-simpson-png.png','user');
-insert into users (user_name, password, email, logo_path, role) values ('Bart','123','bart@gmail.com','https://www.pngfind.com/pngs/m/62-626692_bart-simpson-head-png-transparent-png.png','user');
-insert into users (user_name, password, email, logo_path, role) values ('Lisa','123','lisa@gmail.com','https://pbs.twimg.com/profile_images/685655033556369408/_URvpaLd_400x400.png','user');
+insert into users (user_name, password, email, logo_path, role_id) values ('Homer','$2a$10$IT9KkfibuVgtumte6Zrj.uxhVSLtQpfS8oGBsVdc.ephEQUokVv62','homer@gmail.com','https://consequenceofsound.net/wp-content/uploads/2017/04/homer-simpson-feature1.png?w=807',1);
+insert into users (user_name, password, email, logo_path, role_id) values ('Marge','$2a$10$IT9KkfibuVgtumte6Zrj.uxhVSLtQpfS8oGBsVdc.ephEQUokVv62','marge@gmail.com','https://www.pngitem.com/pimgs/m/256-2562500_simpsons-png-images-free-download-homer-simpson-png.png',2);
+insert into users (user_name, password, email, logo_path, role_id) values ('Bart','$2a$10$IT9KkfibuVgtumte6Zrj.uxhVSLtQpfS8oGBsVdc.ephEQUokVv62','bart@gmail.com','https://www.pngfind.com/pngs/m/62-626692_bart-simpson-head-png-transparent-png.png',2);
+insert into users (user_name, password, email, logo_path, role_id) values ('Lisa','$2a$10$IT9KkfibuVgtumte6Zrj.uxhVSLtQpfS8oGBsVdc.ephEQUokVv62','lisa@gmail.com','https://pbs.twimg.com/profile_images/685655033556369408/_URvpaLd_400x400.png',2);
+
+insert into roles (name) values ('ROLE_ADMIN');
+insert into roles (name) values ('ROLE_USER');
 
 insert into occasions (user_name, user_surname, occasion_type, occasion_date) values ('Homer','Simpson','birthday','2021-06-21');
 insert into occasions (user_name, user_surname, occasion_type, occasion_date) values ('Marge','Simpson','weddings','2021-07-19');

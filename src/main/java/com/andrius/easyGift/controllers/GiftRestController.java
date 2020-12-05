@@ -14,11 +14,13 @@ public class GiftRestController {
 
     private final GiftService giftService;
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/gifts")
     List<Gift> allGiftsSorted() {
         return giftService.getGiftsListSorted();
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/gifts/{id}")
     Gift getGiftById(@PathVariable Long id) {
         return giftService.getGiftById(id);

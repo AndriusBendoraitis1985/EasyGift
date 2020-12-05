@@ -15,6 +15,7 @@ public class OccasionRestController {
 
     private final OccasionService occasionService;
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping()
     List<Occasion> allOccasions() {
         return occasionService.getAllOccasions();
@@ -26,6 +27,7 @@ public class OccasionRestController {
         return occasionService.addOccasion(occasion);
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/{id}")
     Occasion occasionById(@PathVariable Long id) {
         return occasionService.getOccasionById(id);

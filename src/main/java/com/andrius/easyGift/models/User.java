@@ -30,14 +30,8 @@ public class User {
     @Column(name = "logoPath")
     private String logoPath;
 
-    @Column(name = "role")
-    private String role;
+    @ManyToOne
+    @JoinColumn (name = "roleId")
+    private Role role;
 
-    public User(String userName, String password, String email, String logoPath, String role) {
-        this.userName = userName;
-        this.password = password;
-        this.email = email;
-        this.logoPath = logoPath;
-        this.role = role;
-    }
 }
