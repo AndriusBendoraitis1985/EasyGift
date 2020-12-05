@@ -7,17 +7,13 @@ import com.andrius.easyGift.models.User;
 import com.andrius.easyGift.services.UserService;
 import com.andrius.easyGift.util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-public class WelcomeController {
+public class AuthRestController {
 
     @Autowired
     private JwtUtil jwtUtil;
-
-    @Autowired
-    private AuthenticationManager authenticationManager;
 
     @Autowired
     private UserService userService;
@@ -36,17 +32,18 @@ public class WelcomeController {
 
     @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping("/authenticate")
-    public AuthResponse generateToken(@RequestBody AuthRequest authRequest) throws Exception {
+    public AuthResponse generateToken(@RequestBody AuthRequest authRequest){
         User user = userService.findByUserNameAndPassword(authRequest.getUserName(), authRequest.getPassword());
         String token = jwtUtil.generateToken(user.getUserName());
-        return new AuthResponse(token);
+
+        return new AuthResponse(token, user);
     }
 
 
     @CrossOrigin(origins = "http://localhost:4200")
-    @GetMapping("/")
+    @GetMapping()
     public String welcome() {
-        return "welcome to Easy Gift App";
+        return "Welcome to Easy Gift App";
     }
 
 }

@@ -9,4 +9,5 @@ import java.util.List;
 @Repository
 public interface OccasionRepository extends CrudRepository<Occasion, Long> {
     List<Occasion> findAll();
+    List<Occasion> findAllByUserName(String name);
 }
