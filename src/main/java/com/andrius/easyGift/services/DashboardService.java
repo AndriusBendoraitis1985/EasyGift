@@ -27,7 +27,9 @@ public class DashboardService {
 
     public List<Occasion> getOccasionsOfAuthorisedUser(String userName) {
         System.out.println(userName);
-        return occasionRepository.findAllByUserName(userName);
+        List<Occasion> sortedOccasionsByDate = occasionRepository.findAllByUserName(userName);
+        sortedOccasionsByDate.sort(Comparator.comparing(Occasion::getOccasionDate));
+        return sortedOccasionsByDate;
     }
 
 
