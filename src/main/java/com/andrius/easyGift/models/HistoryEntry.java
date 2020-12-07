@@ -38,19 +38,8 @@ public class HistoryEntry {
     @Column(name = "historyImaginePath")
     private String historyImaginePath;
 
-    public HistoryEntry(
-            String userName,
-            String userSurname,
-            String historyType,
-            LocalDate historyDate,
-            String historyDescription,
-            String historyImaginePath
-    ) {
-        this.userName = userName;
-        this.userSurname = userSurname;
-        this.historyType = historyType;
-        this.historyDate = historyDate;
-        this.historyDescription = historyDescription;
-        this.historyImaginePath = historyImaginePath;
-    }
+    @ManyToOne
+    @JoinColumn (name = "userId")
+    private User user;
+
 }

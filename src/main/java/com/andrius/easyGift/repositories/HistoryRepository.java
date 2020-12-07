@@ -9,4 +9,5 @@ import java.util.List;
 @Repository
 public interface HistoryRepository extends CrudRepository<HistoryEntry, Long> {
     List<HistoryEntry> findAll();
+    List<HistoryEntry> findAllByUser_UserName(String userName);
 }

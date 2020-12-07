@@ -24,4 +24,9 @@ public class HistoryRestController {
     HistoryEntry createdHistoryEntry(@RequestBody HistoryEntry historyEntry){
         return historyService.addHistoryEntry(historyEntry);
     }
+    @CrossOrigin(origins = "http://localhost:4200")
+    @GetMapping("/history/{userName}")
+    List<HistoryEntry> allHistoryEntries (@PathVariable String userName){
+        return historyService.getHistoryEntriesByResponsiblePerson(userName);
+    }
 }

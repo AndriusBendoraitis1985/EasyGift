@@ -21,12 +21,13 @@ public class UserRestController {
     }
 
     @CrossOrigin(origins = "http://localhost:4200")
-    @GetMapping("/user")
-    User getUserByUserName(@RequestBody String username) {
-        return userService.findUsersByUserName(username);
+    @GetMapping("/users/{userName}")
+    User getUserByUserName(@PathVariable String userName) {
+        return userService.findUsersByUserName(userName);
     }
+
     @CrossOrigin(origins = "http://localhost:4200")
-    @PostMapping("/users")
+    @PostMapping("/user/new")
     User saveNewUser(@RequestBody RegRequest regRequest) {
         return userService.saveNewUser(regRequest);
     }

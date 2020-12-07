@@ -30,7 +30,7 @@ insert into gifts (gift_description, imagine_path, rating, occasion_id) values (
 insert into gifts (gift_description, imagine_path, rating, occasion_id) values ('Dress','https://soondayswiss.files.wordpress.com/2013/12/soonday-08-m-simpson.jpg?w=650',3,6);
 insert into gifts (gift_description, imagine_path, rating, occasion_id) values ('Beer','https://www.powercoin.it/14777-thickbox_default/duff-beer-simpsons-1-oz-silver-coin-1-tuvalu-2019.jpg',5,7);
 insert into gifts (gift_description, imagine_path, rating, occasion_id) values ('Bear','https://ksd-images.lt/display/aikido/store/820303cbe60f0ee767afda3641b38ce6.jpg',3,8);
-insert into gifts (gift_description, imagine_path, rating, occasion_id) values ('Bear','https://media.istockphoto.com/vectors/cartoon-bomb-illustration-vector-id842671590?k=6&m=842671590&s=612x612&w=0&h=D1A2a--svXcKUyosW2-StYy-2cUNz7c_Zf3RlcqJDK8=',0,9);
+insert into gifts (gift_description, imagine_path, rating, occasion_id) values ('Bomb','https://media.istockphoto.com/vectors/cartoon-bomb-illustration-vector-id842671590?k=6&m=842671590&s=612x612&w=0&h=D1A2a--svXcKUyosW2-StYy-2cUNz7c_Zf3RlcqJDK8=',0,9);
 
-insert into history (history_date, history_description, history_imagine_path, history_type, user_name, user_surname) values ('2019-06-19','Hammock','https://images1.novica.net/pictures/2/p176824_2a.jpg','birthday','Homer','Simpson');
-insert into history (history_date, history_description, history_imagine_path, history_type, user_name, user_surname)values ('2019-04-23','Hat','https://4wayz.co.uk/wp-content/uploads/2019/01/c8f03132-e2c3-4df7-89cf-d5679b78869d.jpg','Chritsmas','Lisa','Simpson');
+insert into history (history_date, history_description, history_imagine_path, history_type, user_name, user_surname, user_id) values ('2019-06-19','Hammock','https://images1.novica.net/pictures/2/p176824_2a.jpg', 'birthday','Homer','Simpson', 2);
+insert into history (history_date, history_description, history_imagine_path, history_type, user_name, user_surname, user_id) values ('2019-04-23','Hat','https://4wayz.co.uk/wp-content/uploads/2019/01/c8f03132-e2c3-4df7-89cf-d5679b78869d.jpg','Chritsmas','Lisa','Simpson', 1);
